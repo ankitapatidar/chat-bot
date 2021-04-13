@@ -3,11 +3,11 @@ services:
     cloudsql-proxy:
       container_name: cloudsql-proxy
       image: gcr.io/cloudsql-docker/gce-proxy:1.16
-      command: /cloud_sql_proxy -dir=/cloudsql -instances=amiable-bonus-303616:us-central1:chatbot-db=tcp:0.0.0.0:5432 -credential_file=/secrets/cloudsql/credentials.json
+      command: /cloud_sql_proxy -dir=/cloudsql -instances=wellbeing-bot-rasa:us-central1:chat-botdb=tcp:0.0.0.0:5432 -credential_file=/secrets/cloudsql/credentials.json
       ports:
         - 5432:5432
       volumes:
-        - /home/usfwellbeingchatbot/amiable-bonus-303616-c8b4873d1c3f.json:/secrets/cloudsql/credentials.json
+        - /home/chatbotgcp/wellbeing-bot-rasa-1d768347c121.json:/secrets/cloudsql/credentials.json
     nginx:
       container_name: "nginx"
       image: nginx
@@ -26,9 +26,9 @@ services:
         SESSION_SECRET: $SESSION_SECRET
     chatbot_ui:
       container_name: "chatbot_ui"
-      build: 
+      build:
         context: frontend
-      ports: 
+      ports:
         - "3000:3000"
       depends_on:
         - cloudsql-proxy
@@ -38,9 +38,9 @@ services:
         SESSION_SECRET: $SESSION_SECRET
     rasa:
       container_name: "rasa_server"
-      build: 
+      build:
         context: backend
-      ports: 
+      ports:
         - "5005:5005"
       depends_on:
         - cloudsql-proxy
@@ -51,7 +51,7 @@ services:
     action_server:
       container_name: "action_server"
       image: rasa/rasa-sdk:latest
-      build: 
+      build:
         context: actions
       volumes:
         - ./actions:/app/actions
