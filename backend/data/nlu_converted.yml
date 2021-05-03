@@ -59,6 +59,234 @@ nlu:
     - yup
     - yas
     - no problem
+- intent: yesset
+  examples: |
+    - yes set the goal
+    - I want to set the goal
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - ok
+    - alright
+    - I can
+    - maybe
+    - ok here
+    - listen
+    - yea
+    - ya
+    - yeah
+    - okay
+    - sure
+    - yep
+    - yup
+    - yas
+    - no problem
+- intent: dontset
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - I don't want to
+    - nah
+    - na
+    - nope
+    - May be later
+- intent: yesgoalspecific
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - ok
+    - alright
+    - I can
+    - maybe
+    - ok here
+    - listen
+    - yea
+    - ya
+    - yeah
+    - okay
+    - sure
+    - yep
+    - yup
+    - yas
+    - no problem
+- intent: notgoalspecific
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - I don't want to
+    - nah
+    - na
+    - nope
+    - May be later
+- intent: yesmeasuregoal
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - ok
+    - alright
+    - I can
+    - maybe
+    - ok here
+    - listen
+    - yea
+    - ya
+    - yeah
+    - okay
+    - sure
+    - yep
+    - yup
+    - yas
+    - no problem
+- intent: nomeasuregoal
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - I don't want to
+    - nah
+    - na
+    - nope
+    - May be later
+- intent: achievable
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - ok
+    - alright
+    - I can
+    - maybe
+    - ok here
+    - listen
+    - yea
+    - ya
+    - yeah
+    - okay
+    - sure
+    - yep
+    - yup
+    - yas
+    - no problem
+- intent: notachievable
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - I don't want to
+    - nah
+    - na
+    - nope
+    - May be later
+- intent: realistic
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - ok
+    - alright
+    - I can
+    - maybe
+    - ok here
+    - listen
+    - yea
+    - ya
+    - yeah
+    - okay
+    - sure
+    - yep
+    - yup
+    - yas
+    - no problem
+- intent: notrealistic
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - I don't want to
+    - nah
+    - na
+    - nope
+    - May be later
+- intent: timely
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - ok
+    - alright
+    - I can
+    - maybe
+    - ok here
+    - listen
+    - yea
+    - ya
+    - yeah
+    - okay
+    - sure
+    - yep
+    - yup
+    - yas
+    - no problem
+- intent: Startgame
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - ok
+    - alright
+- intent: denyStartgame
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: nottimely
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - I don't want to
+    - nah
+    - na
+    - nope
+    - May be later
 - intent: deny
   examples: |
     - no
@@ -71,6 +299,7 @@ nlu:
     - nah
     - na
     - nope
+    - May be later
 - intent: mood_great
   examples: |
     - perfect
@@ -89,9 +318,6 @@ nlu:
     - pretty good
     - well
     - couldn't be better
-    - Awesome
-    - Really Good
-    - Good
 - intent: mood_unhappy
   examples: |
     - sad
@@ -117,7 +343,6 @@ nlu:
     - bad day
     - my mood is bad
     - My mood is low
-    - Really bad
 - intent: skip_to_activity
   examples: |
     - yes, I'm sure. Let's skip to the activity
@@ -134,6 +359,9 @@ nlu:
     - no talk
     - i don't wanna
     - dont want to tell
+- intent: smart_goals
+  examples: |
+    - yes,set up smart goals
 - intent: tell_more
   examples: |
     - no, I'd actually like to tell you about it
@@ -209,3 +437,55 @@ nlu:
     - I changed my mind
     - stupid bot
     - I don't want to talk to you
+- intent: goal1
+  examples: |
+    - stay healthy
+    - stay focussed
+    - I want to focus on my physical health
+    - Increase productivity at work
+    - focus on mental health
+    - loose weight by 10 lbs at end of 3 weeks
+    - stay happy
+    - Get promotion
+    - Study for 10hrs a day
+    - Meditate daily
+    - Wake up early
+- intent: goal2
+  examples: |
+    - stay healthy
+    - stay focussed
+    - I want to focus on my physical health
+    - Increase productivity at work
+    - focus on mental health
+    - loose weight by 10 lbs at end of 3 weeks
+    - stay happy
+    - Get promotion
+    - Study for 10hrs a day
+    - Meditate daily
+    - Wake up early
+- intent: goal3
+  examples: |
+    - stay healthy
+    - stay focussed
+    - I want to focus on my physical health
+    - Increase productivity at work
+    - focus on mental health
+    - loose weight by 10 lbs at end of 3 weeks
+    - stay happy
+    - Get promotion
+    - Study for 10hrs a day
+    - Meditate daily
+    - Wake up early
+- intent: goals
+  examples: |
+    - stay healthy
+    - stay focussed
+    - I want to focus on my physical health
+    - Increase productivity at work
+    - focus on mental health
+    - loose weight by 10 lbs at end of 3 weeks
+    - stay happy
+    - Get promotion
+    - Study for 10hrs a day
+    - Meditate daily
+    - Wake up early
