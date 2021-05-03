@@ -3,16 +3,21 @@ stories:
 - story: first time greet
   steps:
   - intent: greet
-  - slot_was_set:
-    - hello_flag: '0'
-  - action: action_set_helloflag
   - action: utter_ask_feeling
   - checkpoint: check_asked_mood
+- story: Test Greet Track
+  steps:
+  - intent: greet
+  - slot_was_set:
+    - mood_share_flag: '1'
+  - action: utter_handle_regreet
 - story: regreet greet
   steps:
   - intent: greet
   - slot_was_set:
     - hello_flag: '1'
+  - slot_was_set:
+    - mood_share_flag: '0'
   - action: utter_helloagain
   - checkpoint: check_asked_mood
 - story: first time greetfail1
@@ -72,7 +77,7 @@ stories:
     - panas_score: '1'
   - action: utter_happy_offer_chat
   - intent: affirm
-  - action: utter_tell_me_happy
+  - action: utter_ask_emotion_intensity
   - checkpoint: check_venting_group
 - story: good mood positive panas affirmed chat
   steps:
@@ -131,7 +136,7 @@ stories:
   - intent: deny
   - action: utter_denied_chat
   - checkpoint: check_non-venting_group
-- story: good mood negative panas still bad affirmed
+- story: Anu_2/28/2021
   steps:
   - checkpoint: check_asked_mood
   - intent: mood_great
@@ -142,7 +147,7 @@ stories:
   - intent: affirm
   - action: utter_ask_why_bad
   - intent: affirm
-  - action: utter_tell_me_sad
+  - action: utter_ask_emotion_intensity
   - checkpoint: check_venting_group
 - story: good mood negative panas still bad affirmed
   steps:
@@ -202,27 +207,101 @@ stories:
   steps:
   - checkpoint: check_asked_mood
   - intent: mood_unhappy
+  - slot_was_set:
+    - mood_share_flag: '0'
   - action: utter_ask_why_bad
+  - action: action_set_moodshareflag
   - intent: deny
   - action: utter_denied_why_bad
   - intent: skip_to_activity
   - action: utter_skip_to_activity
+  - action: utter_start_smartgoals
+  - action: utter_intro_smartgoals
+  - action: utter_ask_set_goal
+  - intent: deny
+  - action: utter_check_again
+  - action: utter_ask_start_game
+  - intent: denyStartgame
+  - action: utter_check_again_mindfullness
+  - intent: yesset
+  - action: utter_ask_goals
+  - action: utter_explain_goals1
+  - action: utter_explain_goals2
+  - action: utter_ask_three_goals
+  - action: utter_goal1
+  - intent: goal1
+  - action: utter_goal2
+  - intent: goal2
+  - action: utter_goal3
+  - intent: goal3
+  - action: utter_display_goals
+  - intent: dontset
+  - action: utter_rephrase_goal
+  - action: action_set_goal1
+  - action: utter_display_goal1
+  - intent: affirm
+  - action: utter_setgoal1
+  - action: utter_setgoal2
+  - action: utter_setgoal3
+  - action: utter_setgoal4
+  - action: utter_setgoal5
+  - action: utter_confirm_goalspecific
+  - intent: yesgoalspecific
+  - action: utter_goalspecific_details
+  - action: utter_goalspecific_details1
+  - action: utter_confirm_measuregoal
+  - intent: notgoalspecific
+  - action: utter_rephrase_goalspecific
+  - intent: yesmeasuregoal
+  - action: utter_goal_measuredetails1
+  - action: utter_goal_measuredetails2
+  - action: utter_confirm_achievegoal
+  - intent: nomeasuregoal
+  - action: utter_rephrase_goalmeasure
+  - intent: achievable
+  - action: utter_goal_achievable1
+  - action: utter_goal_achievable2
+  - action: utter_confirm_realisticgoal
+  - intent: notachievable
+  - action: utter_rephrase_goalachievable
+  - intent: realistic
+  - action: utter_goal_realistic
+  - action: utter_confirm_timely
+  - intent: notrealistic
+  - action: utter_rephrase_realistic
+  - intent: timely
+  - action: utter_goal_timely1
+  - action: utter_goal_challenge
+  - action: utter_goal_challenge1
+  - intent: nottimely
+  - action: utter_rephrase_timely
+- story: non-venting group start smart goals
+  steps:
   - checkpoint: check_non-venting_group
+  - intent: smart_goals
+  - action: utter_start_smartgoals
+  - action: utter_intro_smartgoals
 - story: bad mood denied tell more
   steps:
   - checkpoint: check_asked_mood
   - intent: mood_unhappy
+  - slot_was_set:
+    - mood_share_flag: '0'
   - action: utter_ask_why_bad
+  - action: action_set_moodshareflag
   - intent: deny
   - action: utter_denied_why_bad
   - intent: tell_more
-  - action: utter_tell_me_sad
+  - action: utter_ask_emotion_intensity
   - checkpoint: check_venting_group
 - story: bad mood denied tell more
   steps:
   - checkpoint: check_asked_mood
   - intent: mood_unhappy
+  - slot_was_set:
+    - mood_share_flag: '0'
   - action: utter_ask_why_bad
+  - action: action_set_moodshareflag
   - intent: deny
   - action: utter_denied_why_bad
   - checkpoint: check_venting_group
@@ -230,16 +309,28 @@ stories:
   steps:
   - checkpoint: check_asked_mood
   - intent: mood_unhappy
+  - slot_was_set:
+    - mood_share_flag: '0'
   - action: utter_ask_why_bad
+  - action: action_set_moodshareflag
   - intent: affirm
-  - action: utter_tell_me_sad
+  - action: utter_ask_emotion_intensity
   - checkpoint: check_venting_group
 - story: bad mood affirmed
   steps:
   - checkpoint: check_asked_mood
   - intent: mood_unhappy
+  - slot_was_set:
+    - mood_share_flag: '0'
   - action: utter_ask_why_bad
+  - action: action_set_moodshareflag
   - checkpoint: check_venting_group
+- story: yes affirmed
+  steps:
+  - intent: affirm
+  - slot_was_set:
+    - mood_share_flag: '1'
+  - action: utter_check
 - story: venting group
   steps:
   - checkpoint: check_venting_group
@@ -259,3 +350,4 @@ stories:
   steps:
   - intent: insult
   - action: utter_respond_insult
+
